@@ -26,3 +26,6 @@ static/dist/bundle.js
 static/dist/styles.css
 static/dist
 server/app/uploads/
+
+.ipynb_checkpoints
+processed_data
