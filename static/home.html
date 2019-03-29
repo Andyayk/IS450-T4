@@ -7,5 +7,12 @@
         <tr><td>
 		<button type="submit">Click me!</button> 
 		</td></tr> 
-	</table> 	
+	</table> 
+
+	<form method="POST" action="/create_task">
+    <div>
+        Item Name: <input type="text" name="itemname"><br>
+    </div>
+    <button type="submit">Upload</button>
+    </form>		
 {% endblock content %}

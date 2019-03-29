@@ -10,9 +10,8 @@ stemmer = nltk.stem.porter.PorterStemmer()
 
 
 from flask import request
-@app.route('/get_category', methods=['POST'])
 
-
+@app.route('/create_task', methods=['POST'])
 def create_task():
     if not request.json or not 'name' in request.json:
         task = {
