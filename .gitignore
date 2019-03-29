@@ -4,6 +4,11 @@ X_test
 X_train
 y_test
 y_train
+X_test_best_choice_7
+X_train_best_choice_7
+y_test_best_choice_7
+y_train_best_choice_7
+randomforestmodel.zip
 
 */*/__pycache__/
 */__pycache__/
