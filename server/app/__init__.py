@@ -61,11 +61,9 @@ def create_app(config_name):
 
             category_list = '{ "0": "Face Palette", "1": "Foundation", "2": "Blush On", "3": "Powder", "4": "Other Face Cosmetics", "5": "BB & CC Cream", "6": "Contour", "7": "Concealer", "8": "Highlighter", "9": "Primer", "10": "Setting Spray", "11": "Bronzer", "12": "Lipstick", "13": "Lip Tint", "14": "Lip Gloss", "15": "Lip Liner", "16": "Other Lip Cosmetics", "17": "Others", "18": "Casual Dress", "19": "Party Dress", "20": "Maxi Dress", "21": "A Line Dress", "22": "Bodycon Dress", "23": "Wedding Dress", "24": "Big Size Dress", "25": "Tshirt", "26": "Blouse", "27": "Shirt", "28": "Tanktop", "29": "Crop Top ", "30": "Big Size Top", "31": "Iphone", "32": "Samsung", "33": "Sony", "34": "Xiaomi", "35": "Others Mobile & Tablet", "36": "Blackberry", "37": "Lenovo", "38": "Nokia", "39": "Brandcode", "40": "Infinix", "41": "Oppo", "42": "Vivo", "43": "Asus", "44": "Evercoss", "45": "Advan", "46": "Huawei", "47": "Mito", "48": "Sharp", "49": "Motorola", "50": "Strawberry", "51": "Realme", "52": "Smartfren", "54": "Honor", "55": "Alcatel", "56": "Maxtron", "57": "SPC" }'
             category_list_load = json.loads(category_list)
-            print(itemname)
-            print(int(category))
-            print(category_list_load[str(category)])
             task = {
                 'status': True,
+				'itemname': itemname,
                 'category': int(category),
                 'category_name': category_list_load[str(category)]
             }

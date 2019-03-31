@@ -1,27 +1,37 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-
 <head>
+    ﻿
     <title>IS450 T4</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
-<body style="">{% extends "layout.html" %} {% block content %}
-    <div class="py-5" style="background-image: url(&quot;http://www.textures4photoshop.com/tex/thumbs/low-poly-geometric-abstract-white-background-1267.jpg&quot;); background-position: top left; background-size: 100%; background-repeat: repeat; padding-bottom: 5%; padding-top: 5%;">
+<body style="bg-light">
+    {% extends "layout.html" %} 
+    {% block content %}
+    <div class="my-5 py-5" style="	background-image: url(&quot;http://mdbootstrap.com/img/Photos/Horizontal/Nature/full%20page/img(11).jpg&quot;);	background-position: center; background-size: 100%;	background-repeat: repeat;">
         <div class="container">
             <div class="row">
                 <div class="p-5 col-md-7 d-flex flex-column justify-content-center">
                     <h3 class="display-4 mb-3">IS450 Team 4</h3>
                     <p class="mb-4 lead">Products Categorization in E-commerce Shopping Website</p>
+                    <br>
+                    <br>
                 </div>
-                <h3 class="mb-3">Generate tag!</h3>
                 <div class="p-5 col-md-5">
+                    <h3 class="mb-3">Categorise a product</h3>
+                    <br>
                     <form method="POST" action="/create_task">
                         <div class="form-group">
-                            <label>Item name:</label>
+                            <label>Item Name:</label>
                             <input class="form-control" aria-describedby="emailHelp" type="text" id="itemname" placeholder="Enter a product name..">
                         </div>
-                        <button type="submit" id="submit" class="btn mt-4 btn-block btn-success p-2">
+                        <button type="submit" class="btn mt-4 btn-block btn-success p-2">
                             <b>Generate tag!</b>
                         </button>
                     </form>
@@ -29,12 +39,53 @@
             </div>
         </div>
     </div>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div> {% endblock content %}
+    <div class="py-5">
+        <div class="container">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Category</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center d-md-flex align-items-center">
+                    <ul class="nav mx-md-auto d-flex justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Andy Ang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Joel Ang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Daniel Ang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Lua Luo Shan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Vanessa Goh</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Yeo Hong Yuan</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="mt-2 mb-0">Team 4: Products Categorization in E-commerce Shopping Website</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
 </body>
-
 </html>
