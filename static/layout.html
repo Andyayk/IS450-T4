@@ -2,13 +2,41 @@
 <html lang="en">
 
 <head>
-  <title>TEXT MINING</title>
+    <title>IS450 T4</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
 
 <body>
     <div>
-      {% block content %}{% endblock %}
+        {% block content %} {% endblock %}
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).on("submit", "form", function(event) {
+        event.preventDefault();
+        var itemname = $('#itemname').val();
+        var formData = new FormData();
+        formData.append("itemname", itemname);
+        $.ajax({
+            url: $(this).attr("action"),
+            type: $(this).attr("method"),
+            dataType: 'json',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data, status) {
+                if (data.task.status){
+                    alert("Item belongs to: " + data.task.category_name);
+                }else{
+                    alert("No results found, please try again");
+                }
+            },
+            error: function(xhr, desc, err) {
+
+            }
+        });
+    });
+</script>
 
 </html>

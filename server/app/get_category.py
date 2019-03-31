@@ -13,6 +13,7 @@ from flask import request
 
 @app.route('/create_task', methods=['POST'])
 def create_task():
+return "ok"
     if not request.json or not 'name' in request.json:
         task = {
             'status': 'False'
@@ -48,9 +49,7 @@ def create_task():
             'status': 'True',
             'category': category
         }
-        
-    tasks.append(task)
-    return jsonify({'task': task}), 201
+    return jsonify({'task': task})
     
     
 # itemname = "natural 01 bioaqua make up profesional compact powder bedak padat"

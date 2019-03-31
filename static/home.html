@@ -1,18 +1,40 @@
-{% extends "layout.html" %} 
-{% block content %}
-	<table align="center">
-		<tr><td>
-        Grats you made it! :)
-        </td></tr>
-        <tr><td>
-		<button type="submit">Click me!</button> 
-		</td></tr> 
-	</table> 
+<!DOCTYPE html>
+<html>
 
-	<form method="POST" action="/create_task">
-    <div>
-        Item Name: <input type="text" name="itemname"><br>
+<head>
+    <title>IS450 T4</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+
+<body style="">{% extends "layout.html" %} {% block content %}
+    <div class="py-5" style="background-image: url(&quot;http://www.textures4photoshop.com/tex/thumbs/low-poly-geometric-abstract-white-background-1267.jpg&quot;); background-position: top left; background-size: 100%; background-repeat: repeat; padding-bottom: 5%; padding-top: 5%;">
+        <div class="container">
+            <div class="row">
+                <div class="p-5 col-md-7 d-flex flex-column justify-content-center">
+                    <h3 class="display-4 mb-3">IS450 Team 4</h3>
+                    <p class="mb-4 lead">Products Categorization in E-commerce Shopping Website</p>
+                </div>
+                <h3 class="mb-3">Generate tag!</h3>
+                <div class="p-5 col-md-5">
+                    <form method="POST" action="/create_task">
+                        <div class="form-group">
+                            <label>Item name:</label>
+                            <input class="form-control" aria-describedby="emailHelp" type="text" id="itemname" placeholder="Enter a product name..">
+                        </div>
+                        <button type="submit" id="submit" class="btn mt-4 btn-block btn-success p-2">
+                            <b>Generate tag!</b>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <button type="submit">Upload</button>
-    </form>		
-{% endblock content %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div> {% endblock content %}
+</body>
+
+</html>
