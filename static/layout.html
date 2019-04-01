@@ -4,11 +4,14 @@
 <head>
     <title>IS450 T4</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/png" href="http://www.favicon.cc/?action=icon&file_id=384302#"/>
+    <link rel="shortcut icon" type="image/png" href="http://www.favicon.cc/?action=icon&file_id=384302#"/>
 </head>
 
 <body>
     <div>
-        {% block content %} {% endblock %}
+        {% block content %}
+        {% endblock %}
     </div>
     <script>
         $(document).ready(function () {
@@ -16,7 +19,13 @@
         })
         $(document).on("submit", "form", function (event) {
             event.preventDefault();
-            var itemname = $('#itemname').val();
+            var itemname = $('#itemname').val().trim();
+            if (itemname == ""){
+                alert("Please fill in item name");
+                return "";
+            }
+            
+            
             var formData = new FormData();
             formData.append("itemname", itemname);
             var counter = 1;
