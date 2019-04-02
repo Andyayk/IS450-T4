@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    ﻿
+    <title>IS450 T4 - Buyer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body">
+    {% extends "layout.html" %}
+    {% block content %}
+
+    <div class="container">
+        <h2>IS450 Team 4</h2>
+        <h4>Item categorization list</h4>
+        <br />
+        <br />
+        <p>Type something in the input field to search the table by <b>category</b>, <b>sub-category</b> or <b>title</b>:</p>
+        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+        <br>
+        <table class="table responsive table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Sub-category</th>
+                </tr>
+            </thead>
+            <tbody id="myTable"></tbody>
+        </table>
+    </div>
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center d-md-flex align-items-center">
+                    <ul class="nav mx-md-auto d-flex justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Andy Ang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Joel Ang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Daniel Ang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Lua Luo Shan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Vanessa Goh</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Yeo Hong Yuan</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="mt-2 mb-0">Team 4: Products Categorization in E-commerce Shopping Website</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            //
+            $.ajax({
+                type: 'GET',
+                url: "http://13.239.140.1/dauntless-fyp/y3s2fypapi/public/api/retrieve_all_title",
+                dataType: 'json',
+                cache: false,
+                processData: false,
+                success: function (response) {
+                    // make table
+                    makeTable(response)
+                },
+                error: function (xhr, status, errorThrown) {
+                    // nth
+                }
+            });
+
+            // table filter function
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+            // table result creation
+            function makeTable(response) {
+                var text = "";
+                for (i = 0; i < response.length; i++) {
+                    row = response[i];
+                    text += '<tr><td>' + (i+1) + '</td><td> ' + row.title + '</td><td>' + getMainCategory(row.category_id) + '</td><td>' + row.category_name + '</td></tr>';
+                }
+                $('table').append(text);
+            };
+
+            // getting main category from id
+            function getMainCategory(category_id) {
+                if (category_id >= 0 && category_id <= 16) {
+                    return "Beauty";
+                } else if (category_id <= 30) {
+                    return "Beauty";
+                }
+                return "Mobile";
+            };
+        });
+    </script>
+
+    {% endblock content %}
+</body>
+</html>

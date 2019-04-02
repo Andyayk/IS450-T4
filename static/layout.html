@@ -4,8 +4,7 @@
 <head>
     <title>IS450 T4</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="shortcut icon" type="image/png" href="http://www.favicon.cc/?action=icon&file_id=384302#"/>
-    <link rel="shortcut icon" type="image/png" href="http://www.favicon.cc/?action=icon&file_id=384302#"/>
+
 </head>
 
 <body>
@@ -46,6 +45,22 @@
                         }
                         $('table').append('<tr><td>' + sessionStorage.clickcount + '</td><td> ' + data.task.itemname + '</td><td>' + data.task.category_name + '</td></tr>');
                         document.getElementById('itemname').value = "";
+
+                        console.log(data.task.itemname + "_" + data.task.category);
+                        $.ajax({
+                            type: 'GET',
+                            url: "http://13.239.140.1/dauntless-fyp/y3s2fypapi/public/api/insert_title_category/" + data.task.itemname + "_" + data.task.category,
+                            dataType: 'json',
+                            contentType: "application/json; charset=utf-8",
+                            cache: false,
+                            processData: false,
+                            success: function (response) {
+                                console.log("Added successfully");
+                            },
+                            error: function (error) {
+                                console.log(JSON.stringify(error));
+                            }
+                        });
                     } else {
                         alert("No results found, please try again");
                     }
